@@ -2,7 +2,7 @@
 
 @section('breadcrumb')
 	<li class="breadcrumb-item">Dashboard</li>
-	<li class="breadcrumb-item active">Siswa</li>
+	<li class="breadcrumb-item active">Guru</li>
 @endsection
 
 @section('content')
@@ -11,22 +11,19 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-body">
-					<div class="card-title">Data Peserta Didik</div>
-                              <a href="{{ url('dashboard/data-siswa/create') }}" class="btn btn-success btn-rounded float-right mb-3">
-                                 <i class="mdi mdi-plus-circle"></i> {{ __('Tambah Peserta Didik') }}
+					<div class="card-title">Data Guru</div>
+                              <a href="{{ url('dashboard/data-guru/create') }}" class="btn btn-success btn-rounded float-right mb-3">
+                                 <i class="mdi mdi-plus-circle"></i> {{ __('Tambah Guru') }}
                               </a>
-							  <a href="{{ url('dashboard/data-siswa/create') }}" class="btn btn-success btn-rounded float-left mb-3">
-								<i class="mdi mdi-account-search"></i> {{ __('Cari Peserta Didik') }}
-							 </a>
 						<div class="table-responsive mb-3">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">NISN</th>
-								    <th scope="col">NIS</th>
-                                            <th scope="col">NAMA</th>
-                                            <th scope="col">KELAS</th>
+                                            <th scope="col">NIP</th>
+								    <th scope="col">NAMA</th>
+                                            <th scope="col">L/P</th>
+                                            <th scope="col">AGAMA</th>
 								    <th scope="col">NOMOR TELEPON</th>
 								    <th scope="col">ALAMAT</th>
 								    <th scope="col"></th>                                        
@@ -36,13 +33,13 @@
 								@php 
 								$i=1;
 								@endphp
-								@foreach($siswa as $value)
+								@foreach($guru as $value)
                                         <tr>					    
                                             <th scope="row">{{ $i }}</th>
                                             <td>{{ $value->nisn }}</td>
-								    <td>{{ $value->nis }}</td>
-                                            <td>{{ $value->nama }}</td>
-                                            <td>{{ $value->kelas->nama_kelas }}</td>
+								    <td>{{ $value->nama }}</td>
+                                            <td>{{ $value->jk }}</td>
+                                            <td>{{ $value->kelas->agama }}</td>
 								    <td>{{ $value->nomor_telp }}</td>
 								    <td>{{ $value->alamat }}</td>
                                             <td>										                           

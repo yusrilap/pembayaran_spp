@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <title>E-Pembayaran SPP</title>
+    <title>E-Pembayaran UDB UDT Sekolah</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -58,7 +58,7 @@
                     <a class="navbar-brand" href="{{ url('/dashboard') }}">
                         <!-- Logo text -->
                         <span class="logo-text">
-						<i class="mdi mdi-square-inc-cash"></i> E-Pembayaran SPP
+						<i class="mdi mdi-square-inc-cash"></i> E-Pembayaran UDB UDT Sekolah
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -190,7 +190,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                Design by Xtreme Admin. Backend by <a href="https://github.com/ravialdo">Ravialdo</a>  | Repost by <a href="https://stokcoding.com/" title="StokCoding.com" target="_blank">StokCoding.com</a>
+                Website by Hilda Pradita
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

@@ -35,7 +35,7 @@
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="navbar-brand" href="{{ url('/dashboard') }}">
                         <span class="logo-text">
-						<i class=""></i> Sistem Informasi SPP
+						<i class=""></i> Sistem Informasi UDB | UDT
                         </span>
                     </a>
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
@@ -86,10 +86,22 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 					@if(auth()->user()->level == 'admin')
+                    <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/data-guru') }}" aria-expanded="false">
+                                <i class="mdi mdi-account-multiple"></i>
+                                <span class="hide-menu">Data Guru</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/data-kelas') }}" aria-expanded="false">
+                               <i class="mdi mdi-home-variant"></i>
+                                   <span class="hide-menu">Data Kelas</span>
+                           </a>
+                       </li>
                         		<li class="sidebar-item">
 							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/data-siswa') }}" aria-expanded="false">
 								<i class="mdi mdi-account-outline"></i>
-								<span class="hide-menu">Data Siswa</span>
+								<span class="hide-menu">Data Peserta Didik</span>
 							</a>
 						</li>
                         		<li class="sidebar-item">
@@ -98,12 +110,7 @@
 								<span class="hide-menu">Data Petugas</span>
 							</a>
 						</li>
-                        		<li class="sidebar-item">
-							 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/data-kelas') }}" aria-expanded="false">
-								<i class="mdi mdi-home-variant"></i>
-									<span class="hide-menu">Data Kelas</span>
-							</a>
-						</li>
+                        		
 						<li class="sidebar-item">
 							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/data-spp') }}" aria-expanded="false">
 								<i class="mdi mdi-cash-usd"></i>
@@ -125,7 +132,7 @@
 									<span class="hide-menu">History Pembayaran</span>
 							</a>
 						</li>
-                              @if(auth()->user()->level == 'admin')
+                              @if(auth()->user()->level == 'admin') <!-- petugas / bendahara -->
 						<li class="sidebar-item">
 							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/laporan') }}" aria-expanded="false">
 								<i class="mdi mdi-file-document"></i>

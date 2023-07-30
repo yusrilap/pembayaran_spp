@@ -26,7 +26,7 @@
                        <div class="input-group mb-3">									
                         <div class="input-group-prepend">										
                            <label class="input-group-text">										 	
-                              SPP Bulan	
+                              Pilih Bulan Bayar	
                            </label>
                         </div>
                         <select class="custom-select @error('spp_bulan') is-invalid @enderror" name="spp_bulan">
