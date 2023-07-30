@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <title>E-Pembayaran SPP</title>
+    <title>E-Pembayaran UDB UDT Sekolah</title>
     <link href="{{ asset('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
 
