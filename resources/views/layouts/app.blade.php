@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'E-Pembayaran SPP') }}</title>
+    <title>{{ config('app.name', 'Sistem Informasi Pembayaran UDB - UDT SMK Pasundan 2 Cianjur') }}</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -19,8 +19,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ __('Sistem Informasi UDB UDT Sekolah') }}
+                <div class="col-sm">
+                    <img src="{{ url('assets/images/smkpasundan.png') }}" width="40" />
+                </div>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ __('Sistem Informasi UDB - UDT SMK Pasundan 2 Cianjur') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

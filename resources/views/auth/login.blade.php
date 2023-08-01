@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
                      <div class="alert alert-success m-3">
-                        Login untuk <b>siswa</b> silahkan <a href="{{ url('login/siswa') }}" class="text-primary" style="text-decoration:none;">Klik Disini</a>
+                        Pendaftaran akun hanya bisa melalui admin yang terkait
                      </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

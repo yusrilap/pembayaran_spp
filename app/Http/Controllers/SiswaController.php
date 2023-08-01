@@ -8,18 +8,19 @@ use App\Siswa;
 use App\Kelas;
 use App\Spp;
 use App\Pembayaran;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
 {
-   
-    public function __construct(){
-         $this->middleware([
+
+    public function __construct()
+    {
+        $this->middleware([
             'auth',
             'privilege:admin'
-         ]);
+        ]);
     }
-   
+
     /**
      * Display a listing of the resource.
      *
@@ -27,11 +28,11 @@ class SiswaController extends Controller
      */
     public function index()
     {
-	   $data = [
+        $data = [
             'user' => User::find(auth()->user()->id),
             'siswa' => Siswa::orderBy('id', 'DESC')->paginate(10),
         ];
-      
+
         return view('dashboard.data-siswa.index', $data);
     }
 
@@ -47,7 +48,7 @@ class SiswaController extends Controller
             'kelas' => Kelas::all(),
             'spp' => Spp::all(),
         ];
-      
+
         return view('dashboard.data-siswa.create', $data);
     }
 
@@ -59,39 +60,39 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-         $messages = [
+        $messages = [
             'required' => ':attribute tidak boleh kosong!',
             'numeric' => ':attribute harus berupa angka!',
             'integer' => ':attribute harus berupa bilangan bulat!'
-         ];
-         
+        ];
+
         $validasi = $request->validate([
             'nisn' => 'required|numeric',
             'nis' => 'required|numeric',
             'nama' => 'required',
-             'kelas' => 'required|integer',
-             'nomor_telepon' => 'required|numeric',
-             'alamat' => 'required',
-             'spp' => 'required|integer',
+            'kelas' => 'required|integer',
+            'nomor_telepon' => 'required|numeric',
+            'alamat' => 'required',
+            'spp' => 'required|integer',
         ], $messages);
-        
-        if($validasi) :
+
+        if ($validasi) :
             $store = Siswa::create([
-               'nisn' => $request->nisn,
-               'nis' => $request->nis,
-               'nama' => $request->nama,
-               'id_kelas' => $request->kelas,
-               'nomor_telp' => $request->nomor_telepon,
-               'alamat' => $request->alamat,
-               'id_spp' => $request->spp
-             ]);
-              if($store) :
-                  Alert::success('Berhasil!', 'Data Berhasil di Tambahkan');
-               else :
-                  Alert::error('Terjadi Kesalahan!', 'Data Gagal di Tambahkan');
-               endif;
+                'nisn' => $request->nisn,
+                'nis' => $request->nis,
+                'nama' => $request->nama,
+                'id_kelas' => $request->kelas,
+                'nomor_telp' => $request->nomor_telepon,
+                'alamat' => $request->alamat,
+                'id_spp' => $request->spp
+            ]);
+            if ($store) :
+                Alert::success('Berhasil!', 'Data Berhasil di Tambahkan');
+            else :
+                Alert::error('Terjadi Kesalahan!', 'Data Gagal di Tambahkan');
+            endif;
         endif;
-      
+
         return redirect('dashboard/data-siswa');
     }
 
@@ -120,7 +121,7 @@ class SiswaController extends Controller
             'kelas' => Kelas::all(),
             'spp' => Spp::all(),
         ];
-      
+
         return view('dashboard.data-siswa.edit', $data);
     }
 
@@ -133,43 +134,43 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $messages = [
             'required' => ':attribute tidak boleh kosong!',
             'numeric' => ':attribute harus berupa angka!',
             'integer' => ':attribute harus berupa bilangan bulat!'
-         ];
-         
+        ];
+
         $validasi = $request->validate([
             'nisn' => 'required|numeric',
             'nis' => 'required|numeric',
             'nama' => 'required',
-             'kelas' => 'required|integer',
-             'nomor_telepon' => 'required|numeric',
-             'alamat' => 'required',
-             'spp' => 'required|integer',
+            'kelas' => 'required|integer',
+            'nomor_telepon' => 'required|numeric',
+            'alamat' => 'required',
+            'spp' => 'required|integer',
         ], $messages);
-        
-        if($validasi) :            
+
+        if ($validasi) :
             $update = Siswa::find($id)->update([
-               'nisn' => $request->nisn,
-               'nis' => $request->nis,
-               'nama' => $request->nama,
-               'id_kelas' => $request->kelas,
-               'nomor_telp' => $request->nomor_telepon,
-               'alamat' => $request->alamat,
-               'id_spp' => $request->spp
-             ]);
-            
-             
-             
-              if($update) :
-                  Alert::success('Berhasil!', 'Data Berhasil di Edit');
-               else :
-                  Alert::error('Terjadi Kesalahan!', 'Data Gagal di Edit');
-               endif;
+                'nisn' => $request->nisn,
+                'nis' => $request->nis,
+                'nama' => $request->nama,
+                'id_kelas' => $request->kelas,
+                'nomor_telp' => $request->nomor_telepon,
+                'alamat' => $request->alamat,
+                'id_spp' => $request->spp
+            ]);
+
+
+
+            if ($update) :
+                Alert::success('Berhasil!', 'Data Berhasil di Edit');
+            else :
+                Alert::error('Terjadi Kesalahan!', 'Data Gagal di Edit');
+            endif;
         endif;
-      
+
         return redirect('dashboard/data-siswa');
     }
 
@@ -181,12 +182,12 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        if(Siswa::find($id)->delete()) :
+        if (Siswa::find($id)->delete()) :
             Alert::success('Berhasil!', 'Data Berhasil di Hapus');
         else :
             Alert::error('Terjadi Kesalahan!', 'Data Gagal di Hapus');
         endif;
-      
-      return back();
+
+        return back();
     }
 }

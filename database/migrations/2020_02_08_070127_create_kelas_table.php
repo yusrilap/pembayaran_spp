@@ -17,6 +17,7 @@ class CreateKelasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama_kelas', 10);
             $table->string('kompetensi_keahlian', 50);
+            $table->string('walikelas', 50);
             $table->timestamps();
         });
     }

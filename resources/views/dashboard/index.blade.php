@@ -6,7 +6,7 @@
 
 @section('content')
 
-   <div class="alert alert-success text-center"><b>Selamat Datang</b> di aplikasi pembayaran UDB UDT Sekolah</div>
+   <div class="alert alert-success text-center"><b>Selamat Datang</b> di Sistem Informasi UDB - UDT SMK Pasundan 2 Cianjur</div>
 
 <div class="row">
    <div class="col-md-12">

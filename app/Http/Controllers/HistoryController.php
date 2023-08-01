@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Pembayaran;
 use App\User;
 
@@ -19,9 +19,9 @@ class HistoryController extends Controller
         $data = [
             'pembayaran' => Pembayaran::orderBy('id', 'DESC')->paginate(15),
             'user' => User::find(auth()->user()->id)
-         ];
-         
-         return view('dashboard.history-pembayaran.index', $data);
+        ];
+
+        return view('dashboard.history-pembayaran.index', $data);
     }
 
     /**

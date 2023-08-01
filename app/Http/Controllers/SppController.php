@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Spp;
 use App\User;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SppController extends Controller
 {
-   
-   public function __construct(){
-         $this->middleware([
+
+    public function __construct()
+    {
+        $this->middleware([
             'auth',
             'privilege:admin'
-         ]);
+        ]);
     }
 
     /**
@@ -28,8 +29,8 @@ class SppController extends Controller
             'spp' => Spp::orderBy('id', 'DESC')->paginate(10),
             'user' => User::find(auth()->user()->id)
         ];
-      
-         return view('dashboard.data-spp.index', $data);
+
+        return view('dashboard.data-spp.index', $data);
     }
 
     /**
@@ -50,33 +51,33 @@ class SppController extends Controller
      */
     public function store(Request $request)
     {
-         $messages = [
+        $messages = [
             'required' => ':attribute tidak boleh kosong!',
             'numeric' => ':attribute harus berupa angka!',
             'min' => ':attribute minimal harus :min angka!',
             'max' => ':attribute maksimal harus :max angka!',
             'integer' => ':attribute harus berupa nilai uang tanpa titik!'
-         ];
-         
+        ];
+
         $validasi = $request->validate([
             'tahun' => 'required|min:4|max:4',
             'nominal' => 'required|integer',
         ], $messages);
-      
-       if($validasi) :
-           $store = Spp::create([
-               'tahun' => $request->tahun,
-               'nominal' => $request->nominal,
-           ]);
-         
-           if($store) :
+
+        if ($validasi) :
+            $store = Spp::create([
+                'tahun' => $request->tahun,
+                'nominal' => $request->nominal,
+            ]);
+
+            if ($store) :
                 Alert::success('Berhasil!', 'Data Berhasil Ditambahkan');
             else :
                 Alert::error('Gagal!', 'Data Gagal Ditambahkan');
             endif;
-         endif;
-      
-      return back();
+        endif;
+
+        return back();
     }
 
     /**
@@ -100,9 +101,9 @@ class SppController extends Controller
     {
         $data = [
             'edit' => Spp::find($id),
-             'user' => User::find(auth()->user()->id)
+            'user' => User::find(auth()->user()->id)
         ];
-      
+
         return view('dashboard.data-spp.edit', $data);
     }
 
@@ -115,20 +116,20 @@ class SppController extends Controller
      */
     public function update(Request $req, $id)
     {
-        if($update = Spp::find($id)) :         
-               $stat = $update->update([
-                  'tahun' => $req->tahun,
-                  'nominal' => $req->nominal
-               ]);
-               if($stat) :
-                      Alert::success('Berhasil!', 'Data Berhasil di Edit');
-                   else :
-                     Alert::error('Terjadi Kesalahan!', 'Data Gagal di Edit');
-                     return back();
-                  endif;
+        if ($update = Spp::find($id)) :
+            $stat = $update->update([
+                'tahun' => $req->tahun,
+                'nominal' => $req->nominal
+            ]);
+            if ($stat) :
+                Alert::success('Berhasil!', 'Data Berhasil di Edit');
+            else :
+                Alert::error('Terjadi Kesalahan!', 'Data Gagal di Edit');
+                return back();
             endif;
-            
-            return redirect('dashboard/data-spp');
+        endif;
+
+        return redirect('dashboard/data-spp');
     }
 
     /**
@@ -139,12 +140,12 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        if(Spp::find($id)->delete()) :
+        if (Spp::find($id)->delete()) :
             Alert::success('Berhasil!', 'Data Berhasil Dihapus');
         else :
             Alert::error('Berhasil!', 'Data Gagal Dihapus');
         endif;
-      
+
         return back();
     }
 }
