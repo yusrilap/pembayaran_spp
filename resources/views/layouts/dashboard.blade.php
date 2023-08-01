@@ -123,8 +123,6 @@
                                     <span class="hide-menu">Data UDB UDT</span>
                                 </a>
                             </li>
-                        @endif
-                        @if (auth()->user()->level == 'admin' || auth()->user()->level == 'petugas')
                             <li class="sidebar-item">
                                 <a class="sidebar-liauth()->user()->level == 'admin'nk waves-effect waves-dark sidebar-link"
                                     href="{{ url('dashboard/pembayaran') }}" aria-expanded="false">
@@ -132,15 +130,15 @@
                                     <span class="hide-menu">Entri Transaksi Pembayaran</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ url('dashboard/histori') }}" aria-expanded="false">
+                                    <i class="mdi mdi-note-multiple"></i>
+                                    <span class="hide-menu">History Pembayaran</span>
+                                </a>
+                            </li>
                         @endif
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ url('dashboard/histori') }}" aria-expanded="false">
-                                <i class="mdi mdi-note-multiple"></i>
-                                <span class="hide-menu">History Pembayaran</span>
-                            </a>
-                        </li>
-                        @if (auth()->user()->level == 'admin')
+                        @if (auth()->user()->level == 'admin' || auth()->user()->level == 'petugas')
                             <!-- petugas / bendahara -->
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
