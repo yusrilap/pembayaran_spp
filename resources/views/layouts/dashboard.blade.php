@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <title>Sistem Informasi UDB - UDT SMK Pasundan 2 Cianjur</title>
+    <title>Sistem Informasi UDB - UDT SMK Pasundan 1 Cianjur</title>
     <link href="{{ asset('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
 
@@ -36,7 +36,7 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ url('/dashboard') }}">
                         <img src="{{ url('assets/images/smkpasundan.png') }}" width="45" />
-                        <i class="" style="padding-left: 10px;">SMK Pasundan 2</i>
+                        <i class="" style="padding-left: 10px;">SMK Pasundan 1</i>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
