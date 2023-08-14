@@ -7,6 +7,7 @@ use App\Kelas;
 use App\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
 {
@@ -148,5 +149,14 @@ class KelasController extends Controller
       endif;
 
       return back();
+   }
+
+   public function cari(Request $req)
+   {
+      $cari = $req->cari;
+
+      $kelas = DB::table('kelas')->where('nama_kelas','like', "%".$cari."%")->paginate();
+      
+     return redirect('dashboard/data-kelas');
    }
 }
