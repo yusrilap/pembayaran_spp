@@ -11,6 +11,9 @@
     <title>Sistem Informasi UDB - UDT SMK Pasundan 1 Cianjur</title>
     <link href="{{ asset('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Sweet Alert -->
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
@@ -92,7 +95,8 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ url('dashboard') }}" aria-expanded="false"><i
-                                    class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                                    class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
                         @if (auth()->user()->level == 'admin')
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -199,6 +203,17 @@
     <script src="{{ asset('assets/libs/chartist/dist/chartist.min.js') }}"></script>
     <script src="{{ asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <script src="{{ asset('dist/js/pages/dashboards/dashboard1.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table-data').DataTable();
+        });
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.13/js/datTables.bootstrap5.min.js"></script>
 </body>
 
 </html>

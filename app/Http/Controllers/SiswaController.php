@@ -8,6 +8,7 @@ use App\Siswa;
 use App\Kelas;
 use App\Spp;
 use App\Pembayaran;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
@@ -27,10 +28,10 @@ class SiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $data = [
             'user' => User::find(auth()->user()->id),
-            'siswa' => Siswa::orderBy('id', 'DESC')->paginate(10),
+            'siswa' => Siswa::paginate(5),
         ];
 
         return view('dashboard.data-siswa.index', $data);

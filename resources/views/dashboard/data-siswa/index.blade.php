@@ -11,15 +11,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">Data Peserta Didik</div>
-                    <a href="{{ url('dashboard/data-siswa/create') }}" class="btn btn-success btn-rounded float-right mb-3">
-                        <i class="mdi mdi-plus-circle"></i> {{ __('Tambah Peserta Didik') }}
-                    </a>
-                    <a href="{{ url('dashboard/data-siswa/create') }}" class="btn btn-success btn-rounded float-left mb-3">
-                        <i class="mdi mdi-account-search"></i> {{ __('Cari Peserta Didik') }}
-                    </a>
+                    <div class="card-title">Data Peserta Didik
+                        <a href="{{ url('dashboard/data-siswa/create') }}"
+                            class="btn btn-success btn-rounded float-right mb-3">
+                            <i class="mdi mdi-plus-circle"></i> {{ __('Tambah Peserta Didik') }}
+                        </a>
+                    </div>
                     <div class="table-responsive mb-3">
-                        <table class="table">
+                        <table id="table-data" class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

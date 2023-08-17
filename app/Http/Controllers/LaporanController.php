@@ -9,7 +9,7 @@ use App\User;
 use App\Siswa;
 use App\Kelas;
 use App;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class LaporanController extends Controller
 {
@@ -43,6 +43,6 @@ class LaporanController extends Controller
     ];
 
     $pdf = PDF::loadView('pdf.laporan', $data);
-    return $pdf->download('Laporan-pembayaran-spp.pdf');
+    return $pdf->download('Laporan-pembayaran-udb-udt.pdf');
   }
 }

@@ -64,17 +64,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">Data Kelas</div>
-
-                    <form action="/dashboard/data-kelas/cari" method="GET">
-                        <input class="float-right" type="submit" value="CARI">
-                        <input class="float-right" type="text" name="cari" placeholder="Cari Kelas .."
-                            value="{{ old('cari') }}">
-                    </form>
-
-                    <br />
-
                     <div class="table-responsive mb-3">
-                        <table class="table">
+                        <table id="table-data" class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
