@@ -16,10 +16,11 @@ class LaporanController extends Controller
 
   public function __construct()
   {
-    $this->middleware([
-      'auth',
-      'privilege:admin'
-    ]);
+    // $this->middleware([
+    //   'auth',
+    //   'privilege:admin',
+    //   'privilege:petugas'
+    // ]);
   }
 
   public function index()
@@ -43,6 +44,6 @@ class LaporanController extends Controller
     ];
 
     $pdf = PDF::loadView('pdf.laporan', $data);
-    return $pdf->download('Laporan-pembayaran-udb-udt.pdf');
+    return $pdf->download('Laporan-Pembayaran-UDB-UDT.pdf');
   }
 }

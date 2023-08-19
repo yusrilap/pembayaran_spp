@@ -138,7 +138,8 @@
     <!-- header -->
     <div class="text-center">
         <img src="{{ public_path('img/smkpasundan.png') }}" class="img" alt="logo.png" width="90">
-        <div style="margin-left:6rem;">
+        <img src="{{ public_path('img/Logo-Pas-2.png') }}" class="img float-right mb-3" alt="logo2.png" width="90">
+        <div style="margin-left:5rem;">
             <span class="text-header text-bold text-danger">
                 PEMERINTAH DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br>
                 <span class="size2">CABANG DINAS PENDIDIKAN </span> <br>
@@ -149,7 +150,7 @@
                     class="underline">smkpascjr@gmail.com</span>
                 <br>Cianjur Jawa Barat <br> </span>
         </div>
-        <img src="{{ public_path('img/Logo-Pas-2.png') }}" class="img" alt="logo2.png" width="90">
+
     </div>
     <div>
         <!-- /header -->
