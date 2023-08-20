@@ -36,7 +36,6 @@ class LaporanController extends Controller
 
   public function create()
   {
-
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
     $data = [

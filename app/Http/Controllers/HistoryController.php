@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Pembayaran;
 use App\User;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class HistoryController extends Controller
 {
@@ -31,7 +32,14 @@ class HistoryController extends Controller
      */
     public function create()
     {
-        //
+        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+        $data = [
+        'pembayaran' => Pembayaran::orderBy('created_at', 'DESC')->get()
+        ];
+
+        $pdf = PDF::loadView('pdf.laporan', $data);
+        return $pdf->download('Laporan-Pembayaran-UDB-UDT.pdf');
     }
 
     /**

@@ -32,6 +32,7 @@ Route::resource('/dashboard/histori', 'HistoryController');
 
 Route::get('/dashboard/laporan', 'LaporanController@index');
 Route::get('/dashboard/laporan/create', 'LaporanController@create');
+Route::get('/dashboard/history/create', 'HistoryController@create');
 
 
 // Route::get('/login/siswa', 'SiswaLoginController@siswaLogin');
