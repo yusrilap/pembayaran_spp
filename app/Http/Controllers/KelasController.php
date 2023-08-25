@@ -117,6 +117,17 @@ class KelasController extends Controller
     */
    public function update(Request $req, $id)
    {
+
+      $messages = [
+         'required' => ':attribute tidak boleh kosong!',
+      ];
+
+      $validasi = $req->validate([
+         'kelas' => 'Required',
+         'keahlian' => 'Required',
+         'walikelas' => 'Required',
+      ], $messages);
+
       if ($update = Kelas::find($id)) :
          $stat = $update->update([
             'nama_kelas' => $req->kelas,
