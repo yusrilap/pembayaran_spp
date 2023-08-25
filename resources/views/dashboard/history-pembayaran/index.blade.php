@@ -27,7 +27,7 @@
                             <div>Bayar Rp.{{ $bayar = $value->jumlah_bayar }}</div>
                             <div>Tunggakan Rp.{{ $spp - $bayar }}</div>
                             <a href="{{ url('dashboard/history/create') }}" class="mt-3 btn btn-success" target="_blank">
-                                Export</a>
+                                Print Kwitansi</a>
                         </div>
                     @endforeach
                     <!-- Pagination -->
