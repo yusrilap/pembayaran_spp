@@ -26,6 +26,7 @@ Route::resource('/dashboard/data-siswa', 'SiswaController');
 Route::resource('/dashboard/data-siswa/search', 'SiswaController');
 Route::resource('/dashboard/data-kelas', 'KelasController');
 Route::resource('/dashboard/data-spp', 'SppController');
+Route::resource('/dashboard/data-udb', 'UdbController');
 Route::resource('/dashboard/data-petugas', 'PetugasController');
 Route::resource('/dashboard/pembayaran', 'PembayaranController');
 Route::resource('/dashboard/histori', 'HistoryController');

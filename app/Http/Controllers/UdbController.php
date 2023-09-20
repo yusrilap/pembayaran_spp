@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Spp;
+use App\Udb;
 use App\User;
 use App\Kelas;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class SppController extends Controller
+class UdbController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware([
@@ -19,26 +18,16 @@ class SppController extends Controller
         ]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = [
-            'spp' => Spp::orderBy('id', 'DESC')->paginate(10),
+            'udb' => Udb::orderBy('id', 'DESC')->paginate(10),
             'user' => User::find(auth()->user()->id)
         ];
 
-        return view('dashboard.data-spp.index', $data);
+        return view('dashboard.data-udb.index', $data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
@@ -61,13 +50,13 @@ class SppController extends Controller
         ];
 
         $validasi = $request->validate([
-            'tahun' => 'required|min:4|max:4',
+            'bulan' => 'required',
             'nominal' => 'required|integer',
         ], $messages);
 
         if ($validasi) :
-            $store = Spp::create([
-                'tahun' => $request->tahun,
+            $store = Udb::create([
+                'bulan' => $request->bulan,
                 'nominal' => $request->nominal,
             ]);
 
@@ -101,11 +90,11 @@ class SppController extends Controller
     public function edit($id)
     {
         $data = [
-            'edit' => Spp::find($id),
+            'edit' => Udb::find($id),
             'user' => User::find(auth()->user()->id)
         ];
 
-        return view('dashboard.data-spp.edit', $data);
+        return view('dashboard.data-udb.edit', $data);
     }
 
     /**
@@ -117,9 +106,9 @@ class SppController extends Controller
      */
     public function update(Request $req, $id)
     {
-        if ($update = Spp::find($id)) :
+        if ($update = Udb::find($id)) :
             $stat = $update->update([
-                'tahun' => $req->tahun,
+                'bulan' => $req->bulan,
                 'nominal' => $req->nominal
             ]);
             if ($stat) :
@@ -130,7 +119,7 @@ class SppController extends Controller
             endif;
         endif;
 
-        return redirect('dashboard/data-spp');
+        return redirect('dashboard/data-udb');
     }
 
     /**
@@ -141,7 +130,7 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        if (Spp::find($id)->delete()) :
+        if (Udb::find($id)->delete()) :
             Alert::success('Berhasil!', 'Data Berhasil Dihapus');
         else :
             Alert::error('Berhasil!', 'Data Gagal Dihapus');

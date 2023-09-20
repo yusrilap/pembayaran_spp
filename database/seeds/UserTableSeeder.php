@@ -7,6 +7,7 @@ use App\Siswa;
 use App\Kelas;
 use App\Spp;
 use App\Pembayaran;
+use App\Udb;
 
 class UserTableSeeder extends Seeder
 {

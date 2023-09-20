@@ -119,12 +119,18 @@
                                     <span class="hide-menu">Data Petugas</span>
                                 </a>
                             </li>
-
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="{{ url('dashboard/data-spp') }}" aria-expanded="false">
                                     <i class="mdi mdi-cash-usd"></i>
-                                    <span class="hide-menu">Data UDB UDT</span>
+                                    <span class="hide-menu">Data UDT</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ url('dashboard/data-udb') }}" aria-expanded="false">
+                                    <i class="mdi mdi-cash-usd"></i>
+                                    <span class="hide-menu">Data UDB</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
