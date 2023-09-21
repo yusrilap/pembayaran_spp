@@ -62,7 +62,7 @@
                                     <th scope="col">TAHUN</th>
                                     <th scope="col">NOMINAL</th>
                                     <th scope="col">DIBUAT</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">LAINNYA</th>
                                 </tr>
                             </thead>
                             <tbody>

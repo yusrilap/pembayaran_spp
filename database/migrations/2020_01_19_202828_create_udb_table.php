@@ -15,7 +15,7 @@ class CreateUdbTable extends Migration
     {
         Schema::create('udb', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('bulan');
+            $table->string('bulan', 20);
             $table->integer('nominal');
             $table->timestamps();
         });

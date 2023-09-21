@@ -120,6 +120,31 @@
                             @enderror
                         </span>
 
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">
+                                    UDB
+                                </label>
+                            </div>
+                            <select name="udb" class="custom-select @error('udb') is-invalid @enderror"
+                                {{ count($udb) == 0 ? 'disable' : '' }}>
+                                @if (count($udb) == 0)
+                                    <option>Pilihan tidak ada</option>
+                                @else
+                                    <option value="">Silahkan Pilih</option>
+                                    @foreach ($udb as $value)
+                                        <option value="{{ $value->id }}">
+                                            {{ 'Bulan ' . $value->bulan . ' - ' . 'Rp.' . $value->nominal }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <span class="text-danger">
+                            @error('udb')
+                                {{ $message }}
+                            @enderror
+                        </span>
+
                         <div class="border-top">
 
                             <button type="submit" class="btn btn-success btn-rounded float-right mt-3">

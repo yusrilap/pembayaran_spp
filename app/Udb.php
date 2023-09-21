@@ -13,7 +13,7 @@ class Udb extends Model
     ];
    
     /**
-   * Belongs To Spp -> User
+   * Belongs To Udb -> User
    *
    * @return void
    */

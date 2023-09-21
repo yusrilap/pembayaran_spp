@@ -9,7 +9,7 @@ class Siswa extends Model
     protected $table = 'siswa';
    
     protected $fillable = [
-         'nisn', 'nis', 'nama', 'id_kelas', 'nomor_telp', 'alamat', 'id_spp'
+         'nisn', 'nis', 'nama', 'id_kelas', 'nomor_telp', 'alamat', 'id_spp', 'id_udb'
     ];
    
    /**
@@ -21,9 +21,18 @@ class Siswa extends Model
     {
          return $this->belongsTo(Spp::class,'id_spp','id');
     }
+
+    public function udb()
+    {
+         return $this->belongsTo(Udb::class,'id_udb','id');
+    }
    
    public function pembayaran(){
         return  $this->hasMany(Pembayaran::class,'id_spp');
+   }
+
+   public function pembayaranudb(){
+        return  $this->hasMany(Pembayaranudb::class,'id_udb');
    }
    
     public function kelas(){

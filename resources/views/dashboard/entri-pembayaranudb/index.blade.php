@@ -12,9 +12,9 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">Pembayaran UDT</div>
+                    <div class="card-title">Pembayaran UDB</div>
 
-                    <form method="post" action="{{ url('dashboard/pembayaran') }}">
+                    <form method="post" action="{{ url('dashboard/pembayaranudb') }}">
                         @csrf
 
                         <div class="form-group">
@@ -33,7 +33,7 @@
                                     Pilih Bulan Bayar
                                 </label>
                             </div>
-                            <select class="custom-select @error('spp_bulan') is-invalid @enderror" name="spp_bulan">
+                            <select class="custom-select @error('udb_bulan') is-invalid @enderror" name="udb_bulan">
                                 <option value="">Silahkan Pilih</option>
                                 <option value="januari">Januari</option>
                                 <option value="februari">Februari</option>
@@ -50,7 +50,7 @@
                             </select>
                         </div>
                         <span class="text-danger">
-                            @error('spp_bulan')
+                            @error('udb_bulan')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -83,7 +83,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">Data Pembayaran</div>
+                    <div class="card-title">Data Pembayaran UDB</div>
 
                     <div class="table-responsive mb-3">
                         <table id="table-data" class="table">
@@ -93,7 +93,7 @@
                                     <th scope="col">PETUGAS</th>
                                     <th scope="col">NISN SISWA</th>
                                     <th scope="col">NAMA SISWA</th>
-                                    <th scope="col">UDT</th>
+                                    <th scope="col">UDB</th>
                                     <th scope="col">JUMLAH BAYAR</th>
                                     <th scope="col">TANGGAL BAYAR</th>
                                     <th scope="col"></th>
@@ -103,13 +103,13 @@
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach ($pembayaran as $value)
+                                @foreach ($pembayaranudb as $value)
                                     <tr>
                                         <th scope="row">{{ $i }}</th>
                                         <td>{{ $value->users->name }}</td>
                                         <td>{{ $value->siswa->nisn }}</td>
                                         <td>{{ $value->siswa->nama }}</td>
-                                        <td>{{ $value->siswa->spp->nominal }}</td>
+                                        <td>{{ $value->siswa->udb->nominal }}</td>
                                         <td>{{ $value->jumlah_bayar }}</td>
                                         <td>{{ $value->created_at->format('d M, Y') }}</td>
                                         <td>
@@ -120,10 +120,10 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actiondd">
                                                     <a class="dropdown-item"
-                                                        href="{{ url('dashboard/pembayaran/' . $value->id . '/edit') }}"><i
+                                                        href="{{ url('dashboard/pembayaranudb/' . $value->id . '/edit') }}"><i
                                                             class="ti-pencil"></i> Edit </a>
                                                     <form method="post"
-                                                        action="{{ url('dashboard/pembayaran', $value->id) }}"
+                                                        action="{{ url('dashboard/pembayaranudb', $value->id) }}"
                                                         id="delete{{ $value->id }}">
                                                         @csrf
                                                         @method('delete')
@@ -145,23 +145,23 @@
                         </table>
                     </div>
                     <! -- Pagination -->
-                        @if ($pembayaran->lastPage() != 1)
+                        @if ($pembayaranudb->lastPage() != 1)
                             <div class="btn-group float-right">
-                                <a href="{{ $pembayaran->previousPageUrl() }}" class="btn btn-success">
+                                <a href="{{ $pembayaranudb->previousPageUrl() }}" class="btn btn-success">
                                     <i class="mdi mdi-chevron-left"></i>
                                 </a>
-                                @for ($i = 1; $i <= $pembayaran->lastPage(); $i++)
-                                    <a class="btn btn-success {{ $i == $pembayaran->currentPage() ? 'active' : '' }}"
-                                        href="{{ $pembayaran->url($i) }}">{{ $i }}</a>
+                                @for ($i = 1; $i <= $pembayaranudb->lastPage(); $i++)
+                                    <a class="btn btn-success {{ $i == $pembayaranudb->currentPage() ? 'active' : '' }}"
+                                        href="{{ $pembayaranudb->url($i) }}">{{ $i }}</a>
                                 @endfor
-                                <a href="{{ $pembayaran->nextPageUrl() }}" class="btn btn-success">
+                                <a href="{{ $pembayaranudb->nextPageUrl() }}" class="btn btn-success">
                                     <i class="mdi mdi-chevron-right"></i>
                                 </a>
                             </div>
                         @endif
                         <!-- End Pagination -->
 
-                        @if (count($pembayaran) == 0)
+                        @if (count($pembayaranudb) == 0)
                             <div class="text-center">Tidak ada data!</div>
                         @endif
 

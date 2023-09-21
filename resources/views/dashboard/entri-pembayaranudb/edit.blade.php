@@ -12,9 +12,9 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">Edit Pembayaran UDT</div>
+                    <div class="card-title">Edit Pembayaran UDB</div>
 
-                    <form method="post" action="{{ url('dashboard/pembayaran', $edit->id) }}">
+                    <form method="post" action="{{ url('dashboard/pembayaranudb', $edit->id) }}">
                         @csrf
                         @method('put')
 
@@ -32,10 +32,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text">
-                                    UDT Bulan
+                                    UDB Bulan
                                 </label>
                             </div>
-                            <select class="custom-select @error('spp_bulan') is-invalid @enderror" name="spp_bulan">
+                            <select class="custom-select @error('udb_bulan') is-invalid @enderror" name="udb_bulan">
                                 <option value="">Silahkan Pilih</option>
                                 <option value="januari" {{ $edit->spp_bulan == 'januari' ? 'selected' : '' }}>Januari
                                 </option>
@@ -75,7 +75,7 @@
                                 @enderror
                             </span>
                         </div>
-                        <a href="{{ url('dashboard/pembayaran') }}" class="btn btn-primary btn-rounded">
+                        <a href="{{ url('dashboard/pembayaranudb') }}" class="btn btn-primary btn-rounded">
                             <i class="mdi mdi-chevron-left"></i>Kembali
                         </a>
                         <button type="submit" class="btn btn-success btn-rounded float-right">

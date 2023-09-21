@@ -7,6 +7,7 @@ use App\User;
 use App\Siswa;
 use App\Kelas;
 use App\Spp;
+use App\Udb;
 use App\Pembayaran;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -48,6 +49,8 @@ class SiswaController extends Controller
             'user' => User::find(auth()->user()->id),
             'kelas' => Kelas::all(),
             'spp' => Spp::all(),
+            'udb' => Udb::all(),
+
         ];
 
         return view('dashboard.data-siswa.create', $data);
@@ -75,6 +78,7 @@ class SiswaController extends Controller
             'nomor_telepon' => 'required|numeric',
             'alamat' => 'required',
             'spp' => 'required|integer',
+            'udb' => 'required|integer',
         ], $messages);
 
         if ($validasi) :
@@ -85,7 +89,8 @@ class SiswaController extends Controller
                 'id_kelas' => $request->kelas,
                 'nomor_telp' => $request->nomor_telepon,
                 'alamat' => $request->alamat,
-                'id_spp' => $request->spp
+                'id_spp' => $request->spp,
+                'id_udb' => $request->udb
             ]);
             if ($store) :
                 Alert::success('Berhasil!', 'Data Berhasil di Tambahkan');
@@ -121,6 +126,7 @@ class SiswaController extends Controller
             'siswa' => Siswa::find($id),
             'kelas' => Kelas::all(),
             'spp' => Spp::all(),
+            'udb' => Udb::all(),
         ];
 
         return view('dashboard.data-siswa.edit', $data);
@@ -150,6 +156,7 @@ class SiswaController extends Controller
             'nomor_telepon' => 'required|numeric',
             'alamat' => 'required',
             'spp' => 'required|integer',
+            'udb' => 'required|integer',
         ], $messages);
 
         if ($validasi) :
@@ -160,7 +167,8 @@ class SiswaController extends Controller
                 'id_kelas' => $request->kelas,
                 'nomor_telp' => $request->nomor_telepon,
                 'alamat' => $request->alamat,
-                'id_spp' => $request->spp
+                'id_spp' => $request->spp,
+                'id_udb' => $request->udb
             ]);
 
 

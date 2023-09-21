@@ -137,7 +137,14 @@
                                 <a class="sidebar-liauth()->user()->level == 'admin'nk waves-effect waves-dark sidebar-link"
                                     href="{{ url('dashboard/pembayaran') }}" aria-expanded="false">
                                     <i class="mdi mdi-cash"></i>
-                                    <span class="hide-menu">Entri Transaksi Pembayaran</span>
+                                    <span class="hide-menu">Pembayaran UDT</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-liauth()->user()->level == 'admin'nk waves-effect waves-dark sidebar-link"
+                                    href="{{ url('dashboard/pembayaranudb') }}" aria-expanded="false">
+                                    <i class="mdi mdi-cash"></i>
+                                    <span class="hide-menu">Pembayaran UDB</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">

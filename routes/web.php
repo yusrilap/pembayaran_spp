@@ -29,6 +29,7 @@ Route::resource('/dashboard/data-spp', 'SppController');
 Route::resource('/dashboard/data-udb', 'UdbController');
 Route::resource('/dashboard/data-petugas', 'PetugasController');
 Route::resource('/dashboard/pembayaran', 'PembayaranController');
+Route::resource('/dashboard/pembayaranudb', 'PembayaranudbController');
 Route::resource('/dashboard/histori', 'HistoryController');
 
 Route::get('/dashboard/laporan', 'LaporanController@index');
