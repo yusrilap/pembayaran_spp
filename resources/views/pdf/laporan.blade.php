@@ -20,11 +20,11 @@
         }
 
         .text-header {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .size2 {
-            font-size: 1.4rem;
+            font-size: 0.9rem;
         }
 
         .border-bottom {
@@ -84,7 +84,7 @@
         }
 
         .text-desc {
-            font-size: 14px;
+            font-size: 11px;
         }
 
         .text-bold {
@@ -141,14 +141,16 @@
         <img src="{{ public_path('img/Logo-Pas-2.png') }}" class="img float-right mb-3" alt="logo2.png" width="90">
         <div style="margin-left:5rem;">
             <span class="text-header text-bold text-danger">
-                PEMERINTAH DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br>
-                <span class="size2">CABANG DINAS PENDIDIKAN </span> <br>
-                SEKOLAH MENENGAH KEJURUAN 1 PASUNDAN CIANJUR <br>
+                YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN <br>
+                <span class="size2">SEKOLAH MENENGAH KEJURUAN (SMK) PASUNDAN CIANJUR </span> <br>
             </span>
-            <span class="text-desc">Jln. Arief Rahman Hakim (Jln. Pasundan) Desa Sabandar Kec. Karangtengah Kab. Cianjur
-                <span class="underline">www.pasundan.com</span> - Email <span
-                    class="underline">smkpascjr@gmail.com</span>
-                <br>Cianjur Jawa Barat <br> </span>
+            <span class="text-desc">SK. KANWIL DEPDIKBUD PROP. JAWA BARAT NO. 839/102/KEP/E-1988, TGL,. 19 OKTOBER 1988
+                <br>
+                <i>Terakreditasi : A (Amat Baik)</i> <br>
+                SK. BADAN AKREDITASI SEKOLAH NO. 02.00/330/SK/BAP-SM/XI/2017 Tanggal 20 November 2017 <br>
+                NSS. 344020701007 &nbsp;&nbsp; NPSN. 20203729 &nbsp;&nbsp; NIS. 410801 <br> </span>
+            <span class="text-desc">JL. ARIEF RAHMAN HAKIM (JL. PASUNDAN) (0263) 264340 FAK 0263 264340 CIANJUR
+            </span>
         </div>
 
     </div>
@@ -159,7 +161,7 @@
 
         <!-- content -->
 
-        <div class="size2 text-center mb-1">LAPORAN PEMBAYARAN UDB - UDT</div>
+        <div class="size2 text-center mb-1">LAPORAN PEMBAYARAN UDT</div>
 
         <table class="table-center mb-1">
             <thead>
@@ -167,8 +169,8 @@
                     <th>Petugas</th>
                     <th>Siswa</th>
                     <th>Kelas</th>
-                    <th>SPP Bulan</th>
-                    <th>SPP Nominal</th>
+                    <th>UDT Bulan</th>
+                    <th>UDT Nominal</th>
                     <th>Nominal Bayar</th>
                     <th>Tanggal Bayar</th>
                 </tr>
@@ -190,10 +192,43 @@
 
 
         </table>
+        <br>
+
+        <div class="size2 text-center mb-1">LAPORAN PEMBAYARAN UDB</div>
+
+        <table class="table-center mb-1">
+            <thead>
+                <tr>
+                    <th>Petugas</th>
+                    <th>Siswa</th>
+                    <th>Kelas</th>
+                    <th>UDB Bulan</th>
+                    <th>UDB Nominal</th>
+                    <th>Nominal Bayar</th>
+                    <th>Tanggal Bayar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pembayaranudb as $val)
+                    <tr>
+                        <td>{{ $val->users->name }}</td>
+                        <td>{{ $val->siswa->nama }}</td>
+                        <td>{{ $val->siswa->kelas->nama_kelas }}</td>
+                        <td>{{ $val->udb_bulan }}</td>
+                        <td>{{ $val->siswa->udb->nominal }}</td>
+                        <td>{{ $val->jumlah_bayar }}</td>
+                        <td>{{ $val->created_at->format('d M, Y') }}</td>
+
+                    </tr>
+                @endforeach
+            </tbody>
+
+
+        </table>
         <!-- /content -->
 
         <!-- footer -->
-        <div>Pembuat : {{ auth()->user()->name }}</div>
+        <div>Pembuat : {{ auth()->user()->name }}</div> <br>
         <!-- /footer -->
 </body>
 

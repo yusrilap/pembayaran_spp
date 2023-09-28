@@ -28,7 +28,7 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">Kelas {{ $history->siswa->kelas->nama_kelas }}</li>
                                             <li class="list-group-item">Jumlah Bayar Rp.{{ $history->jumlah_bayar }}</li>
-                                            <li class="list-group-item">SPP Bulan <b
+                                            <li class="list-group-item">UDT Bulan <b
                                                     class="text-capitalize text-bold">{{ $history->spp_bulan }}</b></li>
                                         </ul>
                                     </span>

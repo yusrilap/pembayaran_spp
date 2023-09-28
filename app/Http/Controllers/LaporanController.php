@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Pembayaranudb;
 use App\Pembayaran;
 use App\User;
 use App\Siswa;
@@ -39,7 +40,8 @@ class LaporanController extends Controller
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
 
     $data = [
-      'pembayaran' => Pembayaran::orderBy('created_at', 'DESC')->get()
+      'pembayaran' => Pembayaran::orderBy('created_at', 'DESC')->get(),
+      'pembayaranudb' => Pembayaranudb::orderBy('created_at', 'DESC')->get()
     ];
 
     $pdf = PDF::loadView('pdf.laporan', $data);
