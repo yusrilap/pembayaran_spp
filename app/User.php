@@ -46,6 +46,16 @@ class User extends Authenticatable
     {
          return $this->hasOne(Spp::class);
     }
+
+    /**
+   * Has One User -> Udb
+   *
+   * @return void
+   */
+    public function udb()
+    {
+         return $this->hasOne(Udb::class);
+    }
    
   /**
    * Has One User -> Kelas
@@ -65,5 +75,15 @@ class User extends Authenticatable
     public function pembayaran()
     {
          return $this->hasMany(Pembayaran::class);
+    }
+
+    /**
+   * Belongs To Pembayaranudb -> User (petugas)
+   *
+   * @return void
+   */
+    public function pembayaranudb()
+    {
+         return $this->hasMany(Pembayaranudb::class);
     }
 }

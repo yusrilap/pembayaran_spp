@@ -151,7 +151,14 @@
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="{{ url('dashboard/histori') }}" aria-expanded="false">
                                     <i class="mdi mdi-note-multiple"></i>
-                                    <span class="hide-menu">History Pembayaran</span>
+                                    <span class="hide-menu">History Pembayaran UDT</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ url('dashboard/historiudb') }}" aria-expanded="false">
+                                    <i class="mdi mdi-note-multiple"></i>
+                                    <span class="hide-menu">History Pembayaran UDB</span>
                                 </a>
                             </li>
                         @endif
