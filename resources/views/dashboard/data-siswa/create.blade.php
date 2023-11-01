@@ -68,6 +68,7 @@
                                 @endif
                             </select>
                         </div>
+
                         <span class="text-danger">
                             @error('kelas')
                                 {{ $message }}

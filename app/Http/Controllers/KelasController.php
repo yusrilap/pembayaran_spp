@@ -28,7 +28,7 @@ class KelasController extends Controller
    public function index()
    {
       $data = [
-         'kelas' => Kelas::orderBy('id', 'DESC')->paginate(10),
+         'kelas' => Kelas::orderBy('id', 'DESC')->paginate(20),
          'user' => User::find(auth()->user()->id),
       ];
 

@@ -21,7 +21,7 @@ class UdbController extends Controller
     public function index()
     {
         $data = [
-            'udb' => Udb::orderBy('id', 'DESC')->paginate(10),
+            'udb' => Udb::orderBy('id', 'DESC')->paginate(20),
             'user' => User::find(auth()->user()->id)
         ];
 

@@ -27,7 +27,7 @@ class PembayaranController extends Controller
    public function index()
    {
       $data = [
-         'pembayaran' => Pembayaran::orderBy('id', 'DESC')->paginate(10),
+         'pembayaran' => Pembayaran::orderBy('id', 'DESC')->paginate(20),
          'user' => User::find(auth()->user()->id)
       ];
 

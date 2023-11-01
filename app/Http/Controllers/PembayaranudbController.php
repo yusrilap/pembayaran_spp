@@ -21,7 +21,7 @@ class PembayaranudbController extends Controller
    public function index()
    {
       $data = [
-         'pembayaranudb' => Pembayaranudb::orderBy('id', 'DESC')->paginate(10),
+         'pembayaranudb' => Pembayaranudb::orderBy('id', 'DESC')->paginate(20),
          'user' => User::find(auth()->user()->id)
       ];
 
