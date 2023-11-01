@@ -11,18 +11,18 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">{{ __('Edit SPP') }}</div>
+                    <div class="card-title">{{ __('Edit UDB') }}</div>
 
-                    <form method="post" action="{{ url('/dashboard/data-spp', $edit->id) }}">
+                    <form method="post" action="{{ url('/dashboard/data-udb', $edit->id) }}">
                         @csrf
                         @method('put')
 
                         <div class="form-group">
-                            <label>Tahun</label>
-                            <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun"
-                                value="{{ $edit->tahun }}">
+                            <label>Bulan</label>
+                            <input type="text" class="form-control @error('bulan') is-invalid @enderror" name="bulan"
+                                value="{{ $edit->bulan }}">
                             <span class="text-danger">
-                                @error('tahun')
+                                @error('bulan')
                                     {{ $message }}
                                 @enderror
                             </span>
