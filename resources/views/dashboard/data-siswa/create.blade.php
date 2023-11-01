@@ -98,7 +98,7 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text">
-                                    SPP
+                                    UDT
                                 </label>
                             </div>
                             <select name="spp" class="custom-select @error('spp') is-invalid @enderror"
